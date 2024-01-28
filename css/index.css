@@ -1,0 +1,255 @@
+:root {
+    --primary-background-color:linear-gradient(to right bottom,#fbdb89,#f48982);
+    --secondary-background-color:#f9f5f3;
+    --primary-text-color:rgb(255, 255, 255);
+    --secondary-text-color:rgb(255, 0, 0)
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* RECIPE FINDER BODY */
+.recipe-finder-body{
+    padding: 10px 25px;
+    background-image: var(--primary-background-color);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* NAVABR */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px 20px 0px 0px;
+    overflow:visible;
+    position: relative;
+    z-index: 4;
+    padding: 0px 20px;
+    background-color: #eee4e3;
+}
+nav img{
+    height: 100px;
+}
+nav .search-bar{
+    white-space: nowrap;
+}
+nav .search-bar input{
+    padding: 15px 25px;
+    border-radius: 25px;
+    border: none;
+}
+input[type=text]:focus{
+    outline: none;
+    border: none;
+}
+nav .search-bar button{
+    padding: 15px 30px;
+    border-radius: 25px;
+    margin-left: -55px;
+    background-image: var(--primary-background-color);
+    color: white;
+    border: none;
+}
+nav .search-bar button i{
+    margin-right: 10px;
+}
+nav .bookmarks-dropdown i{
+    margin-right: 5px;
+    color:#f38e82;
+    font-size: 1.2em;
+}
+nav .bookmarks-dropdown a{
+    text-decoration: none;
+    color:#615551;
+}
+
+/* BOOKMARKS DROPDOWN */
+.bookmarks-dropdown{
+    position: relative;
+    display: inline-block;
+}
+.bookmarks-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    max-height: 90vh;
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+.bookmarks-dropdown-content div{
+    width: 300px;
+}
+.bookmarks-dropdown:hover .bookmarks-dropdown-content {
+    display: block;
+    z-index: 4;
+}
+
+/* RECIPE SECTION*/
+.recipe-section{
+    height: 87%;
+    border: none;
+    background-color: #eee4e3;
+    border-radius: 0px 0px 20px 20px;
+    display: flex;
+    z-index: 3;
+    overflow: hidden;
+}
+
+/* RECIPE OPTIONS SECTION */
+.recipe-options{
+    width: 30%;
+    height: 97%;
+    background-color: white;
+    overflow-y: scroll;
+    position: relative;
+}
+.option{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    transition: .3s;
+}
+.option:hover{
+    background-color: #eee4e3;
+}
+.option img{
+    height: 70px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.option .option-name{
+    color:#f38e82;
+    margin-bottom: 5px;
+}
+.option .option-info{
+    color:#615551a2;
+}
+.loading-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 75px;
+    display: none;
+}
+
+/* DEFAULT MESSAGE SECTION */
+.default-message-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.default-message-container h1{
+    background-image: var(--primary-background-color);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 2em;
+    text-align: center;
+}
+/* RECIPE DETAILS SECTION */
+.recipe-details{
+    flex-grow: 1;
+    height: 98%;
+    overflow-y: scroll;
+    position: relative; /* Add relative positioning */
+    z-index: 2; /* Set a z-index lower than bookmarks dropdown content */
+}
+.recipe-img{
+    display: inline-block;
+    height: 450px;
+    width: 100%;
+    z-index: 9;
+}
+.recipe-details .recipe-name{
+    text-align: center;
+    border: none;
+    background-image: var(--primary-background-color);
+    color: white;
+    width: 50%;
+    margin: -30px auto;    
+    padding: 10px 15px;
+    font-size: 2em;
+    position: relative;
+    z-index: 10;
+}
+.recipe-details .recipe-time-details{
+    padding: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f983;
+    z-index: 8;
+}
+.cook-time::after{
+    content: ' MINUTES';
+    color:#615551;
+}
+.fa-clock{
+    color:#f38e82;
+    padding: 15px;
+    border: none;
+    font-size: 1.3em;
+}
+.bookmark-btn{
+    background-image: var(--primary-background-color); 
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+}
+.recipe-details .bookmark-icon{
+    font-size: 2em;
+    color: white;
+    padding: 5px;
+}
+.bookmark-icon.is-bookmarked{
+    color:black;
+}
+.recipe-details .recipe-ingredients{
+    padding: 30px 0px;
+    /* height: max-content; */
+
+}
+.ingredient{
+    font-size: 1.3em;
+    list-style-position: inside;
+    margin: 10px;
+    color:#615551;
+}
+.recipe-details .recipe-ingredients h3{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color:#f38e82;
+    font-size: 1.5em;
+}
+.recipe-details .recipe-instructions{
+    text-align: center;
+    padding: 40px 0px;
+    background-color: #f9f9f983;
+}
+.recipe-details .recipe-instructions h3{
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color:#f38e82;
+    font-size: 1.5em;
+}
+.recipe-details .recipe-instructions button{
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--primary-background-color);
+    color: white;
+}
+
+
